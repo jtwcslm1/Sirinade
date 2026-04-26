@@ -850,4 +850,200 @@ a {
     opacity: 1;
     transform: none;
   }
+  
+}
+/* ===== Restaurant Carousel ===== */
+
+.restaurant-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 512px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(36, 29, 25, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* 可视窗口 */
+.carousel-window {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+/* 横向滑动轨道 */
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* 每张图片 */
+.carousel-track img {
+  min-width: 100%;
+  height: 100%;
+  min-height: 512px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* 左右按钮 */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  color: var(--red-deep);
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.25s ease;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+  background: white;
+}
+
+.carousel-prev {
+  left: 18px;
+}
+
+.carousel-next {
+  right: 18px;
+}
+
+/* 底部 dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+/* 小圆点 */
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(159, 31, 27, 0.3);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* 当前页 */
+.carousel-dot.active {
+  width: 22px;
+  background: linear-gradient(135deg, var(--red), var(--orange));
+}
+
+/* 手机适配 */
+@media (max-width: 760px) {
+  .restaurant-carousel {
+    min-height: 390px;
+  }
+
+  .carousel-track img {
+    min-height: 390px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+}
+/* ===== Waitlist Form ===== */
+
+.waitlist-form {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 520px);
+  margin: 32px auto 0;
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-row label {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.form-row input {
+  width: 100%;
+  min-height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  padding: 0 20px;
+  font: inherit;
+  font-weight: 700;
+  outline: none;
+  box-shadow: 0 12px 28px rgba(36, 29, 25, 0.08);
+}
+
+.form-row input::placeholder {
+  color: rgba(36, 29, 25, 0.42);
+}
+
+.form-row input:focus {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
+}
+
+.waitlist-form .btn {
+  margin: 8px auto 0;
+}
+
+.waitlist-message {
+  min-height: 24px;
+  margin: 4px 0 0 !important;
+  font-size: 0.95rem !important;
+  font-weight: 800;
+  line-height: 1.5 !important;
+}
+
+.waitlist-message.success {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.waitlist-message.error {
+  color: #ffe0d8;
+}
+
+@media (max-width: 760px) {
+  .waitlist-form {
+    width: 100%;
+  }
+
+  .form-row input {
+    min-height: 52px;
+  }
 }

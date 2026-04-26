@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sirinade | Thai Chili Marinade</title>
+  <title>Sirinade | Thai Marinade</title>
   <meta
     name="description"
-    content="Sirinade is a Thai-style chili marinade made for bold, easy home cooking."
+    content="Sirinade is a Thai-style marinade made for bold, easy home cooking."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -45,13 +45,13 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Thai Chili Marinade</span>
+          <span class="eyebrow">Thai Marinade</span>
           <h1>
             Sirinade
             <span class="accent">Thai Flavor, Made Simple</span>
           </h1>
           <p>
-            A Thai-style chili marinade for bold, easy home cooking.
+            A Thai marinade used in our restaurant, now in your kitchen.
           </p>
 
           <div class="btns">
@@ -69,7 +69,7 @@
             <div class="hero-ring" aria-hidden="true"></div>
 
             <div class="hero-photo-card" aria-label="Sirinade main image">
-              <img src="images/IMG_1599.PNG" alt="Sirinade Thai chili marinade brand image" />
+              <img src="images/IMG_1599.PNG" alt="Sirinade Thai marinade brand image" />
               <div class="hero-shine" aria-hidden="true"></div>
             </div>
           </div>
@@ -80,18 +80,18 @@
     <div class="ticker-wrap">
       <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
-          <span class="ticker-item">Thai Chili Marinade</span>
+          <span class="ticker-item">Thai Marinade</span>
           <span class="ticker-item">Bold Flavor</span>
           <span class="ticker-item">Family Inspired</span>
           <span class="ticker-item">Made for Home Cooking</span>
-          <span class="ticker-item">Sweet • Savory • Spicy • Tangy</span>
+          <span class="ticker-item">Spicy • Tangy</span>
           <span class="ticker-item">Simple and Versatile</span>
 
-          <span class="ticker-item">Thai Chili Marinade</span>
+          <span class="ticker-item">Thai Marinade</span>
           <span class="ticker-item">Bold Flavor</span>
           <span class="ticker-item">Family Inspired</span>
           <span class="ticker-item">Made for Home Cooking</span>
-          <span class="ticker-item">Sweet • Savory • Spicy • Tangy</span>
+          <span class="ticker-item">Spicy • Tangy</span>
           <span class="ticker-item">Simple and Versatile</span>
         </div>
       </div>
@@ -101,40 +101,84 @@
       <div class="container about-grid">
         <div class="story-card reveal">
           <span class="eyebrow">Our Story</span>
-          <h2 class="section-title">Rooted in family.<br />Made for home kitchens.</h2>
+          <h2 class="section-title">Our Story</h2>
           <p class="section-text">
-            Sirinade was inspired by a family Thai restaurant with over 30 years of tradition.
-            We created it to bring bold Thai flavor into everyday home cooking in a simpler way.
+            We’ve been serving Thai food as a family for over 30 years!
+          </p>
+          <p class="section-text">
+            We started as a small restaurant in San Francisco, built on a dream to redefine Thai food in the Bay Area.
+            Over time, we saw how hard it can be to bring Thai flavors into a home kitchen.
+          </p>
+          <p class="section-text">
+            Sirinade is a simple way to enjoy bold Thai flavor, without the guesswork.
           </p>
         </div>
 
-        <div class="story-image reveal" aria-label="Restaurant image">
-          <div class="story-restaurant-photo">
-            <img src="images/IMG_1607.PNG" alt="Sirinade family restaurant" />
-          </div>
-        </div>
+        <div class="story-image reveal" aria-label="Restaurant image carousel">
+  <div class="restaurant-carousel">
+    <button class="carousel-btn carousel-prev" aria-label="Previous restaurant image">‹</button>
+
+    <div class="carousel-window">
+      <div class="carousel-track" id="restaurantCarousel">
+        <img src="images/IMG_1001.png" alt="Sirinade restaurant interior" />
+        <img src="images/IMG_1002.PNG" alt="Sirinade Thai dishes" />
+        <img src="images/IMG_1003.PNG" alt="Sirinade restaurant dining room" />
+      </div>
+    </div>
+
+    <button class="carousel-btn carousel-next" aria-label="Next restaurant image">›</button>
+
+    <div class="carousel-dots" aria-label="Restaurant image navigation">
+      <button class="carousel-dot active" data-slide="0" aria-label="Show image 1"></button>
+      <button class="carousel-dot" data-slide="1" aria-label="Show image 2"></button>
+      <button class="carousel-dot" data-slide="2" aria-label="Show image 3"></button>
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist-section">
-      <div class="container">
-        <div class="waitlist-card reveal">
-          <span class="eyebrow">Waitlist</span>
-          <h2 class="section-title">Be the first to try Sirinade.</h2>
-          <p>
-            We’re getting ready for launch. Join the waitlist for updates, early access, and product news.
-          </p>
-          <a
-            class="btn btn-secondary"
-            href="https://forms.gle/VMXxWmfZP1dF5Yhd7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join the Waitlist
-          </a>
+  <div class="container">
+    <div class="waitlist-card reveal">
+      <span class="eyebrow">Waitlist</span>
+      <h2 class="section-title">Be the first to try Sirinade.</h2>
+      <p>
+        We’re getting ready for launch. Join the waitlist for updates, early access, and product news.
+      </p>
+
+      <form id="waitlistForm" class="waitlist-form">
+        <div class="form-row">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Your full name"
+            required
+          />
         </div>
-      </div>
-    </section>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-secondary">
+          Join the Waitlist
+        </button>
+
+        <p id="waitlistMessage" class="waitlist-message"></p>
+      </form>
+    </div>
+  </div>
+</section>
 
     <section id="contact" class="contact-section">
       <div class="container">
@@ -155,7 +199,7 @@
             <div class="contact-panel">
               <strong class="head">Project Info</strong>
               <p>
-                Sirinade is a Thai-style chili marinade inspired by family restaurant traditions and made for simple home cooking.
+                Sirinade is a Thai-style marinade inspired by family restaurant traditions and made for simple home cooking.
               </p>
 
               <div class="contact-list">
@@ -185,7 +229,7 @@
 
   <footer class="footer">
     <div class="container footer-bar">
-      <div>© 2026 Sirinade. Thai Chili Marinade.</div>
+      <div>© 2026 Sirinade. Thai Marinade.</div>
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#about">Our Story</a>

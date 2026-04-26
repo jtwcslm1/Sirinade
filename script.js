@@ -64,3 +64,94 @@ window.addEventListener("mouseleave", () => {
     brandMark.style.transform = "";
   }
 });
+
+/* Restaurant Image Carousel */
+const restaurantCarousel = document.getElementById("restaurantCarousel");
+const prevBtn = document.querySelector(".carousel-prev");
+const nextBtn = document.querySelector(".carousel-next");
+const dots = document.querySelectorAll(".carousel-dot");
+
+let currentSlide = 0;
+const totalSlides = dots.length;
+
+function updateCarousel(index) {
+  if (!restaurantCarousel || totalSlides === 0) return;
+
+  currentSlide = (index + totalSlides) % totalSlides;
+  restaurantCarousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  dots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("active", dotIndex === currentSlide);
+  });
+}
+
+if (restaurantCarousel && prevBtn && nextBtn && totalSlides > 0) {
+  prevBtn.addEventListener("click", () => {
+    updateCarousel(currentSlide - 1);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    updateCarousel(currentSlide + 1);
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const slideIndex = Number(dot.dataset.slide);
+      updateCarousel(slideIndex);
+    });
+  });
+
+  setInterval(() => {
+    updateCarousel(currentSlide + 1);
+  }, 4200);
+}
+/* Waitlist Form Submission */
+const waitlistForm = document.getElementById("waitlistForm");
+const waitlistMessage = document.getElementById("waitlistMessage");
+
+const waitlistScriptURL = "https://script.google.com/macros/s/AKfycbzAqfi8S_PeIKX8MOf_UYKIhK5tfo9LMbsjlVpkS5PE1I9NqxrgIMZc8TogkY3Hd8vC/exec";
+
+if (waitlistForm) {
+  waitlistForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (!fullName || !email) {
+      waitlistMessage.textContent = "Please enter your name and email.";
+      waitlistMessage.classList.remove("success");
+      waitlistMessage.classList.add("error");
+      return;
+    }
+
+    waitlistMessage.textContent = "Sending...";
+    waitlistMessage.classList.remove("success", "error");
+
+    const data = {
+      fullName: fullName,
+      email: email
+    };
+
+    try {
+      await fetch(waitlistScriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      });
+
+      waitlistMessage.textContent = "Thank you! You are on the waitlist.";
+      waitlistMessage.classList.remove("error");
+      waitlistMessage.classList.add("success");
+      waitlistForm.reset();
+
+    } catch (error) {
+      waitlistMessage.textContent = "Something went wrong. Please try again.";
+      waitlistMessage.classList.remove("success");
+      waitlistMessage.classList.add("error");
+    }
+  });
+}
